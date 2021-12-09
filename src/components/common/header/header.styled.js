@@ -72,15 +72,12 @@ const Link = styled(RouterLink)`
   letter-spacing: 0.03em;
   font-weight: 600;
   text-transform: uppercase;
-
   color: ${({ theme }) => theme.color.whiteSmoke};
-
   ${({ $isActiveLink }) =>
     $isActiveLink &&
     css`
       color: ${({ theme }) => theme.color.tangerine};
     `}
-
   &:focus,
   &:hover {
     color: ${({ theme }) => theme.color.tangerine};

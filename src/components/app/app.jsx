@@ -9,6 +9,7 @@ import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
+import Page404 from '../common/page-404/page-404';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
@@ -25,7 +26,7 @@ const App = () => (
           <Contacts />
         </Route>
         <Route>
-          <div>NOT FOUND</div>
+          <Page404 />
         </Route>
       </Switch>
     </Router>

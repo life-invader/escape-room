@@ -2,7 +2,29 @@ import logo from 'assets/img/logo.svg';
 import { useState } from 'react';
 import * as S from './header.styled';
 
-const LINKS = ['Квесты', 'Новичкам', 'Отзывы', 'Акции', 'Контакты'];
+// const LINKS = ['Квесты', 'Новичкам', 'Отзывы', 'Акции', 'Контакты'];
+const Links = [
+  {
+    Link: 'Квесты',
+    Path: '/',
+  },
+  {
+    Link: 'Новичкам',
+    Path: '#',
+  },
+  {
+    Link: 'Отзывы',
+    Path: '#',
+  },
+  {
+    Link: 'Акции',
+    Path: '#',
+  },
+  {
+    Link: 'Контакты',
+    Path: '/contacts',
+  },
+]
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState(0);
@@ -16,8 +38,20 @@ const Header = () => {
 
         <S.Navigation>
           <S.Links>
-            <S.LinkItem>
-              <S.Link $isActiveLink to="/">
+
+            {
+              Links.map((item, index) => {
+                return (
+                  <S.LinkItem key={`${index}_${item.Link}`}>
+                    <S.Link to={item.Path} $isActiveLink={activeLink === index ? true : ''} onClick={() => setActiveLink(index)} >{item.Link}</S.Link>
+                  </S.LinkItem>
+                )
+              })
+            }
+
+
+            {/* <S.LinkItem>
+              <S.Link to="/">
                 Квесты
               </S.Link>
             </S.LinkItem>
@@ -36,7 +70,8 @@ const Header = () => {
 
             <S.LinkItem>
               <S.Link to="/contacts">Контакты</S.Link>
-            </S.LinkItem>
+            </S.LinkItem> */}
+
           </S.Links>
         </S.Navigation>
         <S.Phone href="tel:88003335599">8 (800) 333-55-99</S.Phone>
