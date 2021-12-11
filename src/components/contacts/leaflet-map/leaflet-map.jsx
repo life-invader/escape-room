@@ -21,20 +21,20 @@ function LeafletMap() {
         },
       ).addTo(instance)
 
+      const myIcon = leaflet.icon({
+        iconUrl: icon,
+        iconAnchor: ESCAPE_ROOM_MAP_COORDS,
+      });
+
+      leaflet.marker(ESCAPE_ROOM_MAP_COORDS, { icon: myIcon }).addTo(instance);
+
       setMap(instance);
     }
   }, [mapRef, map]);
 
-  if (map !== null) {
-    const myIcon = leaflet.icon({
-      iconUrl: icon,
-      iconAnchor: ESCAPE_ROOM_MAP_COORDS,
-    });
-
-    leaflet.marker(ESCAPE_ROOM_MAP_COORDS, { icon: myIcon }).addTo(map);
-  };
-
-  return <div style={{ height: '336px', width: '649px' }} ref={mapRef}></div>;
+  return (
+    <div style={{ height: '336px', width: '649px' }} ref={mapRef}></div>
+  );
 }
 
 export default LeafletMap;
