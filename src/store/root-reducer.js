@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { loadQuests, loadQuest, loadCurrentQuestGenre } from '../store/action';
-import { Genres } from '../const/const';
+import { QuestGenre } from '../const/const';
 
 const initialState = {
   quests: [],
   currentQuest: {},
-  currentQuestGenre: Genres.AllQuests.type,
+  currentQuestGenre: QuestGenre.AllQuests.type,
 }
 
 export const rootReducer = createReducer(initialState, (builder) => {

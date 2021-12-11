@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import * as S from './booking-modal.styled';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
@@ -31,21 +31,21 @@ const BookingModal = ({ onBookingBtnClick }) => {
   }
 
   // Для закрытия окна при клике вне его
-  const handleOutsideModalClick = (evt) => {
+  const handleOutsideModalClick = useCallback((evt) => {
     if (!evt.path.includes(refModalWindow.current)) {
       onBookingBtnClick();
     }
-  }
+  }, [onBookingBtnClick]);
 
   // Для закрытия окна по нажатию escape
-  const handleEscapeKeydown = (evt) => {
+  const handleEscapeKeydown = useCallback((evt) => {
     if (evt.key === 'Escape') {
       if (evt.target.tagName === 'INPUT') {
         return;
       }
       onBookingBtnClick();
     }
-  }
+  }, [onBookingBtnClick]);
 
   useEffect(() => {
     document.body.addEventListener('click', handleOutsideModalClick);
@@ -55,7 +55,7 @@ const BookingModal = ({ onBookingBtnClick }) => {
       document.body.removeEventListener('click', handleOutsideModalClick);
       document.body.removeEventListener('keydown', handleEscapeKeydown);
     }
-  }, [])
+  }, [handleEscapeKeydown, handleOutsideModalClick])
 
   return (
     <S.BlockLayer>

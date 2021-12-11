@@ -9,17 +9,17 @@ import { fetchQuest } from '../../store/api-action';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentQuest } from '../../store/selector';
 import { useParams } from 'react-router';
-import { DifficultyTitle, Genres } from '../../const/const';
+import { DifficultyTitle, QuestGenre } from '../../const/const';
 import Spinner from '../common/spinner-main-page/spinner';
 
 const getGenre = (type) => {
-  return Object.values(Genres).find((genre) => genre.type === type);
+  return Object.values(QuestGenre).find((genre) => genre.type === type);
 }
 
 const DetailedQuest = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { title, description, coverImg, duration, peopleCount = [1, 2], level, type } = useSelector(selectCurrentQuest);
+  const { title, description, coverImg, duration, peopleCount, level, type } = useSelector(selectCurrentQuest);
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
   const [ready, setReady] = useState(false);
 
@@ -29,6 +29,7 @@ const DetailedQuest = () => {
 
   useEffect(() => {
     setReady(false)
+
     dispatch(fetchQuest(id))
       .then(() => setReady(true));
   }, [dispatch, id])

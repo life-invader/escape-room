@@ -5,7 +5,7 @@ import { ReactComponent as IconMystic } from 'assets/img/icon-mystic.svg';
 import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
 import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 
-export const Genres = {
+export const QuestGenre = {
   AllQuests: {
     title: 'Все квесты',
     icon: <IconAllQuests />,
@@ -35,44 +35,6 @@ export const Genres = {
     title: 'Sci-fi',
     icon: <IconScifi />,
     type: 'sci-fi',
-  },
-}
-
-// Удалить
-export const QuestGenre = {
-  AllQuests: 'all-quests',
-  Adventures: 'adventures',
-  Horror: 'horror',
-  Mystic: 'mystic',
-  Detective: 'detective',
-  SciFi: 'sci-fi',
-}
-
-// Удалить
-export const QuestGenreTitle = {
-  [QuestGenre.AllQuests]: {
-    title: 'Все квесты',
-    icon: <IconAllQuests />,
-  },
-  [QuestGenre.Adventures]: {
-    title: 'Приключения',
-    icon: <IconAdventures />,
-  },
-  [QuestGenre.Horror]: {
-    title: 'Ужасы',
-    icon: <IconHorrors />,
-  },
-  [QuestGenre.Mystic]: {
-    title: 'Мистика',
-    icon: <IconMystic />,
-  },
-  [QuestGenre.Detective]: {
-    title: 'Детектив',
-    icon: <IconDetective />,
-  },
-  [QuestGenre.SciFi]: {
-    title: 'Sci-fi',
-    icon: <IconScifi />,
   },
 }
 
