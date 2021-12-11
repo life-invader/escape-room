@@ -2,8 +2,8 @@ import { createSelector } from '@reduxjs/toolkit';
 import { Genres } from '../const/const';
 
 const selectQuests = (state) => state.quests;
-
-const selectCurrentQuestGenre = (state) => state.currentQuestGenre;
+export const selectCurrentQuestGenre = (state) => state.currentQuestGenre;
+export const selectCurrentQuest = (state) => state.currentQuest;
 
 export const selectFilteredQuests = createSelector(selectQuests, selectCurrentQuestGenre, (quests, currentGenre) => {
   if (currentGenre === Genres.AllQuests.type) {

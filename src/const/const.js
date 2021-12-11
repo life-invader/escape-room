@@ -37,3 +37,53 @@ export const Genres = {
     type: 'sci-fi',
   },
 }
+
+// Удалить
+export const QuestGenre = {
+  AllQuests: 'all-quests',
+  Adventures: 'adventures',
+  Horror: 'horror',
+  Mystic: 'mystic',
+  Detective: 'detective',
+  SciFi: 'sci-fi',
+}
+
+// Удалить
+export const QuestGenreTitle = {
+  [QuestGenre.AllQuests]: {
+    title: 'Все квесты',
+    icon: <IconAllQuests />,
+  },
+  [QuestGenre.Adventures]: {
+    title: 'Приключения',
+    icon: <IconAdventures />,
+  },
+  [QuestGenre.Horror]: {
+    title: 'Ужасы',
+    icon: <IconHorrors />,
+  },
+  [QuestGenre.Mystic]: {
+    title: 'Мистика',
+    icon: <IconMystic />,
+  },
+  [QuestGenre.Detective]: {
+    title: 'Детектив',
+    icon: <IconDetective />,
+  },
+  [QuestGenre.SciFi]: {
+    title: 'Sci-fi',
+    icon: <IconScifi />,
+  },
+}
+
+const Difficulty = {
+  Easy: 'easy',
+  Medium: 'medium',
+  Hard: 'hard',
+}
+
+export const DifficultyTitle = {
+  [Difficulty.Easy]: 'простой',
+  [Difficulty.Medium]: 'средний',
+  [Difficulty.Hard]: 'сложный',
+}

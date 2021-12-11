@@ -3,14 +3,21 @@ import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Genres } from '../../../../const/const';
+import { Genres, DifficultyTitle, QuestGenreTitle } from '../../../../const/const';
 import { loadCurrentQuestGenre } from '../../../../store/action';
-import { selectFilteredQuests } from '../../../../store/selector';
+import { selectFilteredQuests, selectCurrentQuestGenre } from '../../../../store/selector';
+import { useEffect } from 'react';
 
 const QuestsCatalog = () => {
   const quests = useSelector(selectFilteredQuests);
-  const currentQuestGenre = useSelector((state) => state.currentQuestGenre);
+  const currentQuestGenre = useSelector(selectCurrentQuestGenre);
   const dispatch = useDispatch();
+
+  // Эффект используется для сброса фильтра квестов при переходе между страницами приложения
+  // Иначе из стора берется актуальное значения фильтра и при переходе между страницами сброса не происходит
+  useEffect(() => {
+    dispatch(loadCurrentQuestGenre(Genres.AllQuests.type));
+  }, [])
 
   return (
     <>
@@ -37,7 +44,7 @@ const QuestsCatalog = () => {
           quests.map(({ id, level, peopleCount, previewImg, title }) => {
             return (
               <S.QuestItem key={`${title}_${id}`}>
-                <S.QuestItemLink to="/quest">
+                <S.QuestItemLink to={`/detailed-quest/${id}`}>
                   <S.Quest>
                     <S.QuestImage
                       src={previewImg}
@@ -56,7 +63,7 @@ const QuestsCatalog = () => {
                         </S.QuestFeatureItem>
                         <S.QuestFeatureItem>
                           <IconPuzzle />
-                          {level}
+                          {DifficultyTitle[level]}
                         </S.QuestFeatureItem>
                       </S.QuestFeatures>
                     </S.QuestContent>
