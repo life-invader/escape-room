@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3001/quests/';
+const BASE_URL = 'http://localhost:3001/';
 const TIMEOUT = 5000;
 
 export const api = axios.create({

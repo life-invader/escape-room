@@ -87,3 +87,9 @@ export const ActionType = {
   LoadQuest: 'load-quest',
   LoadCurrentQuestGenre: 'load-current-quest-genre',
 }
+
+export const ApiRoute = {
+  DetailedQuest: (id) => `/quests/${id}`,
+  Quests: () => '/quests',
+  Orders: () => '/orders',
+}

@@ -6,6 +6,7 @@ import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import { QuestGenre, DifficultyTitle } from '../../../../const/const';
 import { loadCurrentQuestGenre } from '../../../../store/action';
 import { selectFilteredQuests, selectCurrentQuestGenre } from '../../../../store/selector';
+import { AppRoute } from '../../../../const/const';
 
 const QuestsCatalog = () => {
   const quests = useSelector(selectFilteredQuests);
@@ -43,7 +44,7 @@ const QuestsCatalog = () => {
           quests.map(({ id, level, peopleCount, previewImg, title }) => {
             return (
               <S.QuestItem key={`${title}_${id}`}>
-                <S.QuestItemLink to={`/detailed-quest/${id}`}>
+                <S.QuestItemLink to={AppRoute.DetailedQuest(id)}>
                   <S.Quest>
                     <S.QuestImage
                       src={previewImg}
