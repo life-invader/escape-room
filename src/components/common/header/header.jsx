@@ -1,30 +1,7 @@
 import logo from 'assets/img/logo.svg';
 import { useState } from 'react';
 import * as S from './header.styled';
-
-// const LINKS = ['Квесты', 'Новичкам', 'Отзывы', 'Акции', 'Контакты'];
-const Links = [
-  {
-    Link: 'Квесты',
-    Path: '/',
-  },
-  {
-    Link: 'Новичкам',
-    Path: '#',
-  },
-  {
-    Link: 'Отзывы',
-    Path: '#',
-  },
-  {
-    Link: 'Акции',
-    Path: '#',
-  },
-  {
-    Link: 'Контакты',
-    Path: '/contacts',
-  },
-]
+import { AppRoute, AppPageLink } from '../../../const/const';
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState(0);
@@ -32,45 +9,22 @@ const Header = () => {
   return (
     < S.StyledHeader >
       <S.HeaderWrapper>
-        <S.Logo>
+        <S.LogoLink to={AppRoute.Home()}>
           <S.Image src={logo} alt="Логотип Escape Room" width="134" height="50" />
-        </S.Logo>
+        </S.LogoLink>
 
         <S.Navigation>
           <S.Links>
 
             {
-              Links.map((item, index) => {
+              Object.values(AppPageLink).map(({ title, route }, index) => {
                 return (
-                  <S.LinkItem key={`${index}_${item.Link}`}>
-                    <S.Link to={item.Path} $isActiveLink={activeLink === index ? true : ''} onClick={() => setActiveLink(index)} >{item.Link}</S.Link>
+                  <S.LinkItem key={`${index}_${title}`}>
+                    <S.Link to={route} $isActiveLink={activeLink === index ? true : ''} onClick={() => setActiveLink(index)} >{title}</S.Link>
                   </S.LinkItem>
                 )
               })
             }
-
-
-            {/* <S.LinkItem>
-              <S.Link to="/">
-                Квесты
-              </S.Link>
-            </S.LinkItem>
-
-            <S.LinkItem>
-              <S.Link to="#">Новичкам</S.Link>
-            </S.LinkItem>
-
-            <S.LinkItem>
-              <S.Link to="#">Отзывы</S.Link>
-            </S.LinkItem>
-
-            <S.LinkItem>
-              <S.Link to="#">Акции</S.Link>
-            </S.LinkItem>
-
-            <S.LinkItem>
-              <S.Link to="/contacts">Контакты</S.Link>
-            </S.LinkItem> */}
 
           </S.Links>
         </S.Navigation>

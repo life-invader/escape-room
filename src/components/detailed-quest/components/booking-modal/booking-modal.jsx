@@ -27,7 +27,7 @@ const BookingModal = ({ onBookingBtnClick }) => {
       isLegal: false,
     }
 
-    dispatch(sendBookingOrder(userData, sendBookingOrder));
+    dispatch(sendBookingOrder(userData, onBookingBtnClick));
   }
 
   // Для закрытия окна при клике вне его

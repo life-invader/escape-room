@@ -49,3 +49,41 @@ export const DifficultyTitle = {
   [Difficulty.Medium]: 'средний',
   [Difficulty.Hard]: 'сложный',
 }
+
+export const AppRoute = {
+  Home: () => '/',
+  DetailedQuest: (id = ':id') => `/detailed-quest/${id}`,
+  Contacts: () => `/contacts`,
+  Beginner: () => '/beginner',
+  Review: () => '/review',
+  Promotion: () => '/promotion',
+}
+
+export const AppPageLink = {
+  Home: {
+    title: 'Квесты',
+    route: AppRoute.Home,
+  },
+  Beginner: {
+    title: 'Новичкам',
+    route: AppRoute.Beginner,
+  },
+  Review: {
+    title: 'Отзывы',
+    route: AppRoute.Review,
+  },
+  Promotion: {
+    title: 'Акции',
+    route: AppRoute.Promotion,
+  },
+  Contacts: {
+    title: 'Контакты',
+    route: AppRoute.Contacts,
+  },
+}
+
+export const ActionType = {
+  LoadQuests: 'load-quests',
+  LoadQuest: 'load-quest',
+  LoadCurrentQuestGenre: 'load-current-quest-genre',
+}

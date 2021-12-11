@@ -9,20 +9,21 @@ import DetailedQuest from 'components/detailed-quest/detailed-quest';
 import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
-import Page404 from '../common/page-404/page-404';
+import Page404 from '../page-404/page-404';
+import { AppRoute } from '../../const/const';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
     <S.GlobalStyle />
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={AppRoute.Home()}>
           <Home />
         </Route>
-        <Route exact path="/detailed-quest/:id">
+        <Route exact path={AppRoute.DetailedQuest()}>
           <DetailedQuest />
         </Route>
-        <Route exact path="/contacts">
+        <Route exact path={AppRoute.Contacts()}>
           <Contacts />
         </Route>
         <Route>
